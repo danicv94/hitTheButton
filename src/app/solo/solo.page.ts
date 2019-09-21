@@ -14,6 +14,7 @@ export class SoloPage {
   score: number = 0;
   endGame: boolean = false;
  
+  // For timers we should create a service
   startTimer(){
     this.showCountdown = true;
     setTimeout(time =>{
@@ -31,8 +32,6 @@ export class SoloPage {
 
   startTimer2(){
     setTimeout(time =>{
-      console.log(time);
-      console.log(this.timeout);
       if (this.timeLeft>0){
         this.timeLeft -= 1;
         this.startTimer2();
