@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>solo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="!showCountdown && !start" class="container">
+    <ion-button shape="round" (click)="startTimer()">START</ion-button>
+  </div>
+
+  <div *ngIf="showCountdown" class="container countdown">
+    <ion-label>{{timeout}}</ion-label>
+  </div>
+
+  <div *ngIf="start && !endGame" class="container">
+    <ion-label>{{timeLeft}}</ion-label>
+    <ion-button [disabled]="timeout!==0 || timeLeft===0" shape="round" (click)="increaseScore()">CLICK ON ME</ion-button>
+    <ion-label>{{score}}</ion-label>
+
+  </div>
+
+  <div class="container" *ngIf="endGame">
+    <ion-label>Your score is {{score}}</ion-label>
+    <ion-label *ngIf="score<20">You are bad</ion-label>
+  </div>
+
+</ion-content>
