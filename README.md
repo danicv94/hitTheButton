@@ -3,7 +3,7 @@ Game created with Ionic4
 
 Ionic:
 
-   Ionic CLI                     : 5.4.1 (C:\Users\sezer\AppData\Roaming\npm\node_modules\ionic)
+   Ionic CLI                     : 5.4.1
    Ionic Framework               : @ionic/angular 4.9.1
    @angular-devkit/build-angular : 0.801.3
    @angular-devkit/schematics    : 8.1.3
@@ -17,6 +17,6 @@ Utility:
 
 System:
 
-   NodeJS : v10.11.0 (C:\Program Files\nodejs\node.exe)
+   NodeJS : v10.11.0
    npm    : 6.11.3
    OS     : Windows 10
