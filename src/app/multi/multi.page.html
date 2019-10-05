@@ -1,9 +1,35 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>multi</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <ng-container *ngIf="showStart">
+    <div class="container">
+      <ion-button shape="round" (click)="startGame()">START</ion-button>
+    </div>
+  </ng-container>
 
+
+  <ng-container *ngIf="showCountdown">
+    <div class="container countdown">
+      <ion-label>{{timeout}}</ion-label>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="showGame">
+    <div class="container">
+      <ion-label *ngIf="!endGame">{{timeLeft}}</ion-label>
+      <ion-button class="buttonPlayer1" [disabled]="timeout!==0 || timeLeft===0" shape="round"
+        (click)="increaseScore(1)">
+        CLICK ON ME 1
+      </ion-button>
+      <ion-button class="buttonPlayer2" [disabled]="timeout!==0 || timeLeft===0" shape="round"
+        (click)="increaseScore(2)">
+        CLICK ON ME 2
+      </ion-button>
+      <ion-label>{{score}}</ion-label>
+
+      <ion-label *ngIf="endGame">The winner is {{winner}} with {{winnerScore}}</ion-label>
+
+      <ion-button *ngIf="endGame" shape="round" (click)="restartGame()">
+        Re-Match
+      </ion-button>
+    </div>
+  </ng-container>
 </ion-content>
