@@ -1,28 +1,30 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>solo</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <div *ngIf="!showCountdown && !start" class="container">
-    <ion-button shape="round" (click)="startTimer()">START</ion-button>
-  </div>
+  <ng-container *ngIf="!showCountdown && !start">
+    <div class="container">
+      <ion-button shape="round" (click)="startGame()">START</ion-button>
+    </div>
+  </ng-container>
 
-  <div *ngIf="showCountdown" class="container countdown">
-    <ion-label>{{timeout}}</ion-label>
-  </div>
 
-  <div *ngIf="start && !endGame" class="container">
-    <ion-label>{{timeLeft}}</ion-label>
-    <ion-button [disabled]="timeout!==0 || timeLeft===0" shape="round" (click)="increaseScore()">CLICK ON ME</ion-button>
-    <ion-label>{{score}}</ion-label>
+  <ng-container *ngIf="showCountdown">
+    <div class="container countdown">
+      <ion-label>{{timeout}}</ion-label>
+    </div>
+  </ng-container>
 
-  </div>
+  <ng-container *ngIf="start && !endGame">
+    <div class="container">
+      <ion-label>{{timeLeft}}</ion-label>
+      <ion-button [disabled]="timeout!==0 || timeLeft===0" shape="round" (click)="increaseScore()">CLICK ON ME
+      </ion-button>
+      <ion-label>{{score}}</ion-label>
+    </div>
+  </ng-container>
 
-  <div class="container" *ngIf="endGame">
-    <ion-label>Your score is {{score}}</ion-label>
-    <ion-label *ngIf="score<20">You are bad</ion-label>
-  </div>
-
+  <ng-container *ngIf="endGame">
+    <div class="container">
+      <ion-label>Your score is {{score}}</ion-label>
+      <ion-label *ngIf="score<20">You are bad</ion-label>
+    </div>
+  </ng-container>
 </ion-content>
